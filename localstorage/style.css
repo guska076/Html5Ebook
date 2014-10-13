@@ -1,0 +1,56 @@
+#todolist {
+	width: 200px;
+	outline:none;
+	font:12px Tahoma, sans-serif;
+}
+#todolist li {
+	margin: 0 0 10px 0;
+	list-style-type:none;
+	background:#CFCFCF;
+	padding:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+#todolist li.low {
+	background:#0E7F07;
+}
+#todolist li.high
+{
+	background:#BF2323;
+}
+input#new_task {
+	border:1px solid #CFCFCF;
+	height:20px;
+	width: 200px;
+	float:left;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+input#add_task {
+	border:none;
+	background:url("103.png") no-repeat;
+	display:block;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	float:left;
+	margin:5px;
+}
+#clear {
+	float:left;
+	margin:5px;
+}
+a {
+	font:12px Tahoma, sans-serif;
+	color:black;
+}
+a.del_task
+{
+	width:10px;
+	height:16px;
+	background:url("101.png") no-repeat;
+	float:right;
+	margin:2px 0 0 0;
+}

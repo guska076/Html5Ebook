@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="pl"><head>
+<body>
+<canvas id="obrazek" width="360" height="240">
+</canvas>
+<script>
+var canvas = document.getElementById('obrazek');
+var context = canvas.getContext('2d');
+context.strokeStyle = 'red';//kolor linii
+context.strokeRect(15,40,75,50);//rysujemy prostokąt bez wypełnienia
+context.fillStyle = '#bbbbbb';
+context.fillRect(15,40,75,50);
+</script>
+</body></html>

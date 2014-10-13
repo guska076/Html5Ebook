@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="pl"><head>
+<body>
+<canvas id="obrazek" width="360" height="240">
+</canvas>
+<script>
+var canvas = document.getElementById('obrazek');
+var context = canvas.getContext('2d');
+context.beginPath();
+context.moveTo(50, 50);
+context.quadraticCurveTo(70, 50, 60, 90);
+context.quadraticCurveTo(310, 250, 410,550);
+context.strokeStyle = '#663366';
+context.lineWidth = 2;
+context.stroke();
+</script>
+</body></html>

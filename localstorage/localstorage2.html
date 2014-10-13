@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <title>HTML5 localStorage demo 2</title>
+  </head>
+
+
+  <body>
+  	
+  	<h1>Do zrobienia</h1>
+  	 
+		<ul id="todolist"> 
+		    <li>Zadanie pierwsze</li> 
+		    <li>Matematyka</li> 
+		    <li>Zakupy</li> 
+		    <li>Kolejne zadanie</li> 
+		</ul> 
+	<a id="clear" href="#">Czyść</a>
+	<input type="text" name="new_task" id="new_task" />
+	<input id="add_task" type="submit" value="" title="Dodaj zadanie" />
+    <script>
+    	$(function (){
+    		// store content
+    		/*var todo = document.getElementById('todolist');
+    		$("#todolist").blur(function() {
+    			localStorage.setItem('todoData', this.innerHTML);
+    		});
+    		// restore content when page loads
+    		if (localStorage.getItem('todoData')) {
+    			todo.innerHTML = localStorage.getItem('todoData');
+    		}*/
+			var todo = document.getElementById('todolist');
+			
+			$('#add_task').live('click',function(){
+				var new_item = document.getElementById('new_task').value;
+				$('#todolist').append('<li>'+new_item+'</li>');
+				localStorage.setItem('todoData', todo.innerHTML);
+			});
+			if (localStorage.getItem('todoData')) {
+				
+    			todo.innerHTML = localStorage.getItem('todoData');
+    		}
+    		// add maxi and mini classes upon content (optional)
+    		/*$("li:contains('++')").addClass('maxi');
+    		$("li:not(:contains('++'))").removeClass('maxi');
+    		$("li:contains('--')").addClass('mini');
+    		$("li:not(:contains('--'))").removeClass('mini');*/
+			$('#clear').click(function(){
+				localStorage.clear();
+				return false;
+			});
+    	});
+    </script>
+
+  </body>
+
+</html>

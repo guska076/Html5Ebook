@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html lang="pl"><head>
+<body>
+<canvas id="obrazek" width="360" height="240" style="border:1px solid black;">
+</canvas>
+<script>
+var canvas = document.getElementById('obrazek');
+var context = canvas.getContext('2d');
+context.save();
+context.fillRect(50,60,40,40);
+context.transform(1, 0,-0.5, 1, 30, 40);
+context.scale(1, 0.6);
+context.fillStyle = 'rgba(0, 0, 0, 0.2)';
+context.fillRect(50,60,40,40);
+</script>
+</body></html>

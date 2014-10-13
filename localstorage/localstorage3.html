@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="style.css">
+	<script src="json2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <title>HTML5 localStorage demo 3</title>
+  </head>
+
+
+  <body>
+  	
+  	<h1>Do zrobienia</h1>
+  	 
+		<ul id="todolist"> 
+		    <li>Zadanie pierwsze</li> 
+		    <li class="low">Matematyka</li> 
+		    <li>Zakupy</li> 
+		    <li>Kolejne zadanie</li> 
+		</ul> 
+	<a id="clear" href="#">Czyść</a>
+	<input type="text" name="new_task" id="new_task" />
+	<select id="task_priority">
+		<option value="high">Wysoki</option>
+		<option value="normal" selected="selected">Normalny</option>
+		<option value="low">Niski</option>
+	</select>
+	<input id="add_task" type="submit" value="" title="Dodaj zadanie" />
+    <script>
+    	$(function (){
+			var todo = document.getElementById('todolist');
+			
+			$('#add_task').live('click',function(){
+				var new_item = document.getElementById('new_task').value;
+				var select = document.getElementById('task_priority');
+				var priority = select.options[select.selectedIndex].value;
+				$('#todolist').append('<li class="'+priority+'">'+new_item+'</li>');
+				var store_data = {
+					content : todo.innerHTML
+				};
+				var store_data_string = JSON.stringify(store_data);
+				localStorage.setItem('todoData', store_data_string);
+			});
+			
+			if (localStorage.getItem('todoData')) {
+				var obj = JSON.parse(localStorage.getItem('todoData'));
+    			todo.innerHTML = obj.content;
+    		}
+
+			$('#clear').click(function(){
+				localStorage.clear();
+				return false;
+			});
+    	});
+    </script>
+
+  </body>
+
+</html>

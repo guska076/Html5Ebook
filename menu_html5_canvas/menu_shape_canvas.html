@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Html5 canvas menu - demo</title>
+	<link href="css/menu.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/menu_shape.js"></script>
+	<style type="text/css">
+		body {
+			background:url("bg2.jpg") no-repeat top center;
+		}
+		div.container {
+			position:relative;
+			margin:50px auto 0 auto;
+			width:800px;
+		}
+		#menu_shape {
+			position:absolute;
+			top:0;
+			padding:0;
+			margin:17px 0 0 20px;
+			width:100%;
+		}
+		#menu_shape li {
+			float:left;
+			list-style:none;
+			padding:0;
+			margin:0;
+			margin-right:10px;
+		}
+		#menu_shape li a {
+			text-decoration:none;
+			font:14px Verdana, Arial, Helvetica, sans-serif;
+			color:white;
+			font-weight:bold;
+			width:180px;
+			float:left;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<canvas id="canvas" width="800px" height="100px"></canvas>
+	<ul id="menu_shape">
+		<li><a href="#">HOME</a></li>
+		<li><a href="#">PORTFOLIO</a></li>
+		<li><a href="#">CONTACT</a></li>
+	</ul>
+	</div>
+</body>
+</html>

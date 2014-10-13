@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html lang="pl"><head>
+<body>
+<canvas id="obrazek" width="360" height="240">
+</canvas>
+<script>
+var canvas = document.getElementById('obrazek');
+var context = canvas.getContext('2d');
+context.beginPath();
+context.arc(30, 30, 15, 0, 2*Math.PI, false);
+context.stroke();
+</script>
+</body></html>

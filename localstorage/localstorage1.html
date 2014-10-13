@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <title>HTML5 localStorage demo</title>
+  </head>
+
+
+  <body>
+  	
+  	<h1>Do zrobienia</h1>
+  	 
+		<ul id="todolist" contenteditable="true"> 
+		    <li>Zadanie pierwsze</li> 
+		    <li>Matematyka</li> 
+		    <li>Zakupy</li> 
+		    <li>Kolejne zadanie</li> 
+		</ul> 
+	<a id="clear" href="#">Czyść</a>
+    <script>
+    	$(function (){
+
+    		var todo = document.getElementById('todolist');
+    		$("#todolist").blur(function() {
+    			localStorage.setItem('todoData', this.innerHTML);
+    		});
+
+    		if (localStorage.getItem('todoData')) {
+    			todo.innerHTML = localStorage.getItem('todoData');
+    		}
+			$('#clear').click(function(){
+				localStorage.clear();
+				return false;
+			});
+    	});
+    </script>
+
+  </body>
+
+</html>

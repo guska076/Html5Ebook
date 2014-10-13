@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="style.css">
+	<script src="json2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <title>HTML5 localStorage demo 5</title>
+  </head>
+  <body>
+  	
+  	<h1>Do zrobienia</h1>
+  	 
+		<ul id="todolist"> 
+
+		</ul> 
+	<a id="clear" href="#">Czyść</a>
+	<input type="text" name="new_task" id="new_task" />
+	<select id="task_priority">
+		<option value="high">Wysoki</option>
+		<option value="normal" selected="selected">Normalny</option>
+		<option value="low">Niski</option>
+	</select>
+	<input id="add_task" type="submit" value="" title="Dodaj zadanie" />
+    <script type="text/javascript">
+		var todo = document.getElementById('todolist');
+		var actual_inner = '';
+		var store_data = [];
+    	$(document).ready(function (){
+			console.log(localStorage.getItem('todoData'));
+			if (localStorage.getItem('todoData')) {
+				var obj = JSON.parse(localStorage.getItem('todoData'));
+				store_data = obj;
+				for(item in obj)
+				{
+					actual_inner = actual_inner+'<li class="'+obj[item].priority+'">'+obj[item].item+'<a class="del_task" href="'+item+'" title="Usuń"></a></li>';
+				}
+				todo.innerHTML = actual_inner;
+				
+    		}
+			$('#add_task').live('click',function(){
+				var new_item = document.getElementById('new_task').value;
+				var select = document.getElementById('task_priority');
+				var priority = select.options[select.selectedIndex].value;
+				var store_data_cont = {
+					item : new_item,
+					priority : priority
+				};
+				$('#todolist').append('<li class="'+priority+'">'+new_item+'<a class="del_task" href="'+store_data.length+'" title="Usuń"></a></li>');
+				store_data[store_data.length] = store_data_cont;
+				store_data_string = JSON.stringify(store_data);
+				localStorage.setItem('todoData', store_data_string);
+			});
+
+			$('#clear').click(function(){
+				localStorage.clear();
+				return false;
+			});
+			
+			$('a.del_task').live('click',function(){
+				var del_index = $(this).attr('href');
+				$(this).parent().remove();
+				store_data.splice(del_index,1);
+				store_data_string = JSON.stringify(store_data);
+				localStorage.setItem('todoData', store_data_string);
+				return false;
+			});
+    	});
+    </script>
+
+  </body>
+
+</html>

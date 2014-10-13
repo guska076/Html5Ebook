@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="pl"><head>
+<body>
+<canvas id="obrazek" width="360" height="240">
+</canvas>
+<script>
+var canvas = document.getElementById('obrazek');
+var context = canvas.getContext('2d');
+var gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+gradient.addColorStop(0, 'yellow');
+gradient.addColorStop(0.6, 'green');
+context.fillStyle = gradient;
+context.fillRect(0, 0, canvas.width, canvas.height);
+</script>
+</body></html>
