@@ -3,7 +3,7 @@ Html5 - Javascriptowe api bez tajemnic
 
 Materiały do e-booka na temat html5.
 
-![Html5Ebook](cover-mini.jpg)
+![Html5Ebook](cover_mini.jpg)
 
 Materiały
 ------------
